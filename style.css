@@ -1,9 +1,0 @@
-@import '/node_modules/normalize.css/';
-@import '/node_modules/milligram/dist/milligram.min.css';
-
-body{
-  margin-top: 50px;
-}
-#bulkaction{
-  width: 150px;
-}

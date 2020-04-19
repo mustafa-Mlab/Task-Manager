@@ -29,6 +29,16 @@ $(document).ready(function(){
         return false;
       }
     }
-  })
+  });
+
+  $("#register").on('click', function(){
+    $(".login-title").html("REGISTRATION");
+    $("#action").val("registration");
+  });
+
+  $("#login").on('click', function(){
+    $(".login-title").html("LOGIN");
+    $("#action").val("login");
+  });
 
 });
