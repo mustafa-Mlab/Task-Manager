@@ -1,7 +1,6 @@
 <?php
 session_start();
 include_once "config.php";
-print_r($_REQUEST);
 $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 if( ! $connection ){
@@ -15,9 +14,10 @@ if( ! $connection ){
     if( 'add' == $action ){
       $task = $_POST['task'];
       $date = $_POST['date'];
+      $user_id  = $_SESSION['id'];
   
-      if( $task && $date ){
-        $query = "INSERT INTO " . DB_TABLE . "(task,date) VALUES('{$task}','{$date}')";
+      if( $task && $date && $user_id ){
+        $query = "INSERT INTO tasks(task,date, user_id) VALUES('{$task}','{$date}', '{$user_id}')";
         mysqli_query($connection, $query);
         header('Location: index.php?added=true');
       }

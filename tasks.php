@@ -10,10 +10,10 @@ $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 if( ! $connection ){
   throw new Exception("Database not connected");
 }
-$query = "SELECT * FROM tasks WHERE complete = 0 ORDER BY date";
+$query = "SELECT * FROM tasks WHERE complete = 0 AND user_id = {$_user_id} ORDER BY date";
 $result = mysqli_query( $connection, $query );
 
-$completeTaskQuery = "SELECT * FROM tasks WHERE complete = 1 ORDER BY date";
+$completeTaskQuery = "SELECT * FROM tasks WHERE complete = 1 AND user_id = {$_user_id} ORDER BY date";
 $completeTaskresult = mysqli_query( $connection, $completeTaskQuery );
 ?>
 <!DOCTYPE html>
