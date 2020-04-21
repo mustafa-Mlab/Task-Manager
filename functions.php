@@ -1,5 +1,13 @@
 <?php
 
+function connectionDB(){
+  try{
+    return new PDO('mysql:host=127.0.0.1;dbname=task', 'root', '1');
+  }catch(PDOException $e){
+    $e->getMessage();
+  }
+}
+
 function getStatus( $statusCode = 0 ){
   $status = [
       '0' => '',
