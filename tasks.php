@@ -8,12 +8,15 @@ if( !$_user_id ){
 require_once 'Database/Connection.php';
 require_once 'Database/IncompleteTask.php';
 require_once 'Database/CompleteTask.php';
+require_once 'CompleteTask.php';
+require_once 'IncompleteTask.php';
 
 $incomplete_task = new IncompleteTask(Connection::make());
 $incomplete_task_query = $incomplete_task->incomplete_task( $_user_id );
 
 $complete_task = new CompleteTask(Connection::make());
 $complete_task_query = $complete_task->complete_task( $_user_id );
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,14 +59,14 @@ $complete_task_query = $complete_task->complete_task( $_user_id );
         <?php
       }
       foreach( $complete_task_query as $complete_data ){
-        $timespamt = strtotime( $complete_data['date'] );
+        $timespamt = strtotime( $complete_data->date );
         $date = date("jS M, Y", $timespamt);
         ?>
           <tr>
-            <td><?php echo $complete_data['id']; ?></td>
-            <td><?php echo $complete_data['task']; ?></td>
+            <td><?php echo $complete_data->id; ?></td>
+            <td><?php echo $complete_data->task; ?></td>
             <td><?php echo $date; ?></td>
-            <td><a href="#" data-taskdelete="<?php echo $complete_data['id']; ?>" class="delete-task">Delete</a> | <a href="#" data-taskincomplete="<?php echo $complete_data['id']; ?>" class="task-incomplete">Mark incomplete</a></td>
+            <td><a href="#" data-taskdelete="<?php echo $complete_data->id; ?>" class="delete-task">Delete</a> | <a href="#" data-taskincomplete="<?php echo $complete_data->id; ?>" class="task-incomplete">Mark incomplete</a></td>
           </tr>
         <?php
       }
@@ -92,15 +95,15 @@ $complete_task_query = $complete_task->complete_task( $_user_id );
             <!-- row data from database -->
             <?php
             foreach($incomplete_task_query as $data){
-            $timespamt = strtotime( $data['date'] );
+            $timespamt = strtotime( $data->date );
             $date = date("jS M, Y", $timespamt);
             ?>
               <tr>
-                <td><input type="checkbox" name="ids[]" class="label-inline" value="<?php echo $data['id']; ?>"></td>
-                <td><?php echo $data['id']; ?></td>
-                <td><?php echo $data['task']; ?></td>
+                <td><input type="checkbox" name="ids[]" class="label-inline" value="<?php echo $data->id; ?>"></td>
+                <td><?php echo $data->id; ?></td>
+                <td><?php echo $data->task; ?></td>
                 <td><?php echo $date; ?></td>
-                <td><a href="#" data-taskdelete="<?php echo $data['id']; ?>" class="delete-task">Delete</a> | <a href="#" data-taskid="<?php echo $data['id'] ?>" class="task-complete">complete</a></td>
+                <td><a href="#" data-taskdelete="<?php echo $data->id; ?>" class="delete-task">Delete</a> | <a href="#" data-taskid="<?php echo $data->id; ?>" class="task-complete">complete</a></td>
               </tr>
             <?php } ?>
           </tbody>
