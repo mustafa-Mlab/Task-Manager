@@ -4,16 +4,16 @@ $_user_id = $_SESSION['id'] ?? 0;
 if( !$_user_id ){
   header("Location: index.php");
 }
-require_once 'config.php';
-$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-if( ! $connection ){
-  throw new Exception("Database not connected");
-}
-$query = "SELECT * FROM tasks WHERE complete = 0 AND user_id = {$_user_id} ORDER BY date";
-$result = mysqli_query( $connection, $query );
 
-$completeTaskQuery = "SELECT * FROM tasks WHERE complete = 1 AND user_id = {$_user_id} ORDER BY date";
-$completeTaskresult = mysqli_query( $connection, $completeTaskQuery );
+require_once 'Database/Connection.php';
+require_once 'Database/IncompleteTask.php';
+require_once 'Database/CompleteTask.php';
+
+$incomplete_task = new IncompleteTask(Connection::make());
+$incomplete_task_query = $incomplete_task->incomplete_task( $_user_id );
+
+$complete_task = new CompleteTask(Connection::make());
+$complete_task_query = $complete_task->complete_task( $_user_id );
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +40,7 @@ $completeTaskresult = mysqli_query( $connection, $completeTaskQuery );
     <p>This is a simple project for managing our daily task</p>
     
     <?php
-      if( mysqli_num_rows( $completeTaskresult ) > 0 ){
+      if( !empty( $complete_task_query ) ){
         ?>
           <h4>Complete Task</h4>
           <table>
@@ -55,7 +55,7 @@ $completeTaskresult = mysqli_query( $connection, $completeTaskQuery );
           <tbody>
         <?php
       }
-      while( $complete_data = mysqli_fetch_assoc( $completeTaskresult ) ){
+      foreach( $complete_task_query as $complete_data ){
         $timespamt = strtotime( $complete_data['date'] );
         $date = date("jS M, Y", $timespamt);
         ?>
@@ -72,7 +72,7 @@ $completeTaskresult = mysqli_query( $connection, $completeTaskQuery );
     </table>
     <p>....</p>
     <?php
-      if( mysqli_num_rows( $result ) == 0 ){
+      if( empty($incomplete_task_query) ){
         echo '<p>No Pending Task Found</p>';
       }else{
     ?>
@@ -91,7 +91,7 @@ $completeTaskresult = mysqli_query( $connection, $completeTaskQuery );
           <tbody>
             <!-- row data from database -->
             <?php
-            while( $data = mysqli_fetch_assoc( $result ) ){
+            foreach($incomplete_task_query as $data){
             $timespamt = strtotime( $data['date'] );
             $date = date("jS M, Y", $timespamt);
             ?>
@@ -114,7 +114,7 @@ $completeTaskresult = mysqli_query( $connection, $completeTaskQuery );
       </form>
     <?php 
       }
-      mysqli_close($connection);
+      // mysqli_close($connection);
     ?>
     <p>....</p>
   </div>
