@@ -10,11 +10,12 @@ require_once 'Database/IncompleteTask.php';
 require_once 'Database/CompleteTask.php';
 require_once 'CompleteTask.php';
 require_once 'IncompleteTask.php';
+require_once 'config.php';
 
-$incomplete_task = new IncompleteTask(Connection::make());
+$incomplete_task = new IncompleteTask(Connection::make($config['database']));
 $incomplete_task_query = $incomplete_task->incomplete_task( $_user_id );
 
-$complete_task = new CompleteTask(Connection::make());
+$complete_task = new CompleteTask(Connection::make($config['database']));
 $complete_task_query = $complete_task->complete_task( $_user_id );
 
 ?>

@@ -1,6 +1,13 @@
 <?php
-#Database details
-define("DB_HOST", "127.0.0.1");
-define("DB_NAME", "task");
-define("DB_USER", "root");
-define("DB_PASSWORD", "1");
+
+$config =  [
+  'database'   => [
+    'name'     => 'task',
+    'username' => 'root',
+    'password' => 1,
+    'host'     => 'mysql: host = 127.0.0.1',
+    'option'   => [
+      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ]
+  ]
+];

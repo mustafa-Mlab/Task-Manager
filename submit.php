@@ -1,11 +1,13 @@
 <?php
 session_start();
+require_once 'config.php';
 require_once 'functions.php';
 require_once 'database/Connection.php';
 require_once 'database/InsertQuery.php';
 require_once 'database/LoginRegistrationQuery.php';
-$insert_query = new InsertQuery(Connection::make());
-$login_registration_query = new LoginRegistrationQuery(Connection::make());
+
+$insert_query = new InsertQuery(Connection::make($config['database']));
+$login_registration_query = new LoginRegistrationQuery(Connection::make($config['database']));
 $action = isset( $_POST['action'] ) ? $_POST['action'] : '';
 $statusCode = 0;
 if( ! $action ){
