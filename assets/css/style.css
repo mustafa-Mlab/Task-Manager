@@ -10,10 +10,14 @@ body{
 #bulkaction{
   width: 150px;
 }
-
 h1.heading{
   text-align: center;
-  margin-bottom: 0;
+  margin-bottom: 0 auto;
+}
+p.person-name{
+margin: 0;
+letter-spacing: 2px;
+font-size: 18px;
 }
 p.tagline{
   text-align: center;
@@ -44,4 +48,7 @@ h2.login-title{
 }
 .sidebar-menu ul li{
   list-style: none;
+}
+.logo-wrapper{
+  margin-top: 100px;
 }

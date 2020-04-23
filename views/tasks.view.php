@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task List</title>
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-</head>
-<body>
-
-  <div class="sidebar-menu">
-    <ul>
-      <li><a href="">Home</a></li>
-      <li><a href="tasks">Task List</a></li>
-      <li><a href="add-task">Add Task</a></li>
-      <li><a href="logout">Logout</a></li>
-    </ul>
-  </div>
+<?php require 'parcial/header.php'; ?>
+<?php require 'parcial/nav.php'; ?>
 
   <div class="container">
     <h1><a href="<?php echo '/'; ?>">Task Manager</a></h1>
@@ -119,7 +102,4 @@
     <input type="hidden" name="incompleteid" id="incomplete-data">
   </form>
 
-</body>
-<script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="assets/js/script.js"></script>
-</html>
+<?php require 'parcial/footer.php'; ?>

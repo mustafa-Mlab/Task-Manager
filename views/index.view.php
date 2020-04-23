@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task List</title>
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-</head>
-<body>
-  <h1 class="heading"><a href="">My Tasks</a></h1>
-  <p class="tagline">A Task Manager System</p>
+<?php require 'parcial/header.php'; ?>
+  <div class="logo-wrapper">
+    <h1 class="heading"><a href="">My Tasks</a></h1>
+    <p class="tagline">A Task Manager System</p>
+  </div>
 
   <div class="login-area">
     <p class="login"><a href="#" id="login">Login</a> | <a href="#" id="register">Register</a></p>
     <form action="submit.php" method="post" id="login-registration-form">
       <fieldset>
         <h2 class="login-title">LOGIN</h2>
+        <!-- <label for="name">Name</label>
+        <input type="text" name="name" placeholder="your name"> -->
         <label for="emailfield">Email</label>
         <input type="email" name="emailfield" placeholder="your email">
         <label for="passwordfield">Password</label>
@@ -35,7 +30,4 @@
       </fieldset>
     </form>
   </div>
-</body>
-<script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="assets/js/script.js"></script>
-</html>
+<?php require 'parcial/footer.php'; ?>

@@ -31,11 +31,13 @@ $(document).ready(function(){
     }
   });
 
+  //register
   $("#register").on('click', function(){
     $(".login-title").html("REGISTRATION");
     $("#action").val("registration");
   });
 
+  //login
   $("#login").on('click', function(){
     $(".login-title").html("LOGIN");
     $("#action").val("login");
