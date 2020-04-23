@@ -1,24 +1,3 @@
-<?php
-session_start();
-$_user_id = $_SESSION['id'] ?? 0;
-if( !$_user_id ){
-  header("Location: index.php");
-}
-
-require_once 'Database/Connection.php';
-require_once 'Database/IncompleteTask.php';
-require_once 'Database/CompleteTask.php';
-require_once 'CompleteTask.php';
-require_once 'IncompleteTask.php';
-require_once 'config.php';
-
-$incomplete_task = new IncompleteTask(Connection::make($config['database']));
-$incomplete_task_query = $incomplete_task->incomplete_task( $_user_id );
-
-$complete_task = new CompleteTask(Connection::make($config['database']));
-$complete_task_query = $complete_task->complete_task( $_user_id );
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,15 +11,15 @@ $complete_task_query = $complete_task->complete_task( $_user_id );
 
   <div class="sidebar-menu">
     <ul>
-      <li><a href="index.php">Home</a></li>
-      <li><a href="tasks.php">Task List</a></li>
-      <li><a href="add-task.php">Add Task</a></li>
-      <li><a href="logout.php">Logout</a></li>
+      <li><a href="">Home</a></li>
+      <li><a href="tasks">Task List</a></li>
+      <li><a href="add-task">Add Task</a></li>
+      <li><a href="logout">Logout</a></li>
     </ul>
   </div>
 
   <div class="container">
-    <h1><a href="<?php echo 'index.php'; ?>">Task Manager</a></h1>
+    <h1><a href="<?php echo '/'; ?>">Task Manager</a></h1>
     <p>This is a simple project for managing our daily task</p>
     
     <?php
