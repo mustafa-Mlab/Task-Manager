@@ -2,58 +2,15 @@
 session_start();
 require 'core/Load.php';
 require_once 'functions.php';
-require_once 'core/database/InsertQuery.php';
 require_once 'core/database/LoginRegistrationQuery.php';
 
-$insert_query = new InsertQuery(Connection::make($config['database']));
 $login_registration_query = new LoginRegistrationQuery(Connection::make($config['database']));
 $action = isset( $_POST['action'] ) ? $_POST['action'] : '';
 $statusCode = 0;
 if( ! $action ){
   header('Location: index');
 }else{
-  if( 'add' == $action ){
-    $task = $_POST['task'];
-    $date = $_POST['date'];
-    $user_id  = $_SESSION['id'];
-
-    if( $task && $date && $user_id ){
-      $task_add = $insert_query->addTask( $task, $date, $user_id );
-      header('Location: tasks.php?added=true');
-    }
-  }elseif( 'complete' == $action ){
-    $taskid = $_POST['taskid'];
-    if ( $taskid ){
-      $complete = $insert_query->completeTask( $taskid );
-      header('Location: tasks');
-    }
-  }elseif( 'delete' == $action ){
-    $taskid = $_POST['deleteid'];
-    if( $taskid ){
-      $delete = $insert_query->deleteTask( $taskid );
-      header('Location: tasks');
-    }
-  }elseif( 'incomplete' == $action ){
-    $taskid = $_POST['incompleteid'];
-    if( $taskid ){
-      $incomplete = $insert_query->incompleteTask($taskid);
-      header('Location: tasks');
-    }
-  }elseif( 'bulkcomplete' == $action ){
-    $taskids = $_POST['ids'];
-    $_taskid = join(',', $taskids);
-    if( $taskids ){
-      $bulkcomplete = $insert_query->bulkcomplete( $_taskid );
-      header('Location: tasks');
-    }
-  }elseif( 'bulkdelete' == $action ){
-    $taskids = $_POST['ids'];
-    $_taskid = join(',', $taskids);
-    if( $taskids ){
-      $bulkdelete = $insert_query->bulkdelete( $_taskid );
-      header('Location: tasks');
-    }
-  }elseif( 'registration' == $action ){
+  if( 'registration' == $action ){
     $username = $_POST['emailfield'] ?? '';
     $password = $_POST['passwordfield'] ?? '';
     if( $username && $password ){

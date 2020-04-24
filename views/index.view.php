@@ -6,11 +6,9 @@
 
   <div class="login-area">
     <p class="login"><a href="#" id="login">Login</a> | <a href="#" id="register">Register</a></p>
-    <form action="submit.php" method="post" id="login-registration-form">
+    <form action="authenticate" method="post" id="login-registration-form">
       <fieldset>
         <h2 class="login-title">LOGIN</h2>
-        <!-- <label for="name">Name</label>
-        <input type="text" name="name" placeholder="your name"> -->
         <label for="emailfield">Email</label>
         <input type="email" name="emailfield" placeholder="your email">
         <label for="passwordfield">Password</label>

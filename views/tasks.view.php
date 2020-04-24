@@ -85,19 +85,19 @@
     <p>....</p>
   </div>
   <!-- complete form -->
-  <form action="submit.php" method="post" id="complete-form">
+  <form action="taskaction" method="post" id="complete-form">
     <input type="hidden" name="action" value="complete">
     <input type="hidden" name="taskid" id="complete-data">
   </form>
 
   <!-- Delete form -->
-  <form action="submit.php" method="post" id="delete-form">
+  <form action="taskaction" method="post" id="delete-form">
     <input type="hidden" name="action" value="delete">
     <input type="hidden" name="deleteid" id="delete-data">
   </form>
 
   <!-- Mark incopmplete -->
-  <form action="submit.php" method="post" id="inomplete-form">
+  <form action="taskaction" method="post" id="inomplete-form">
     <input type="hidden" name="action" value="incomplete">
     <input type="hidden" name="incompleteid" id="incomplete-data">
   </form>

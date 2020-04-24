@@ -14,6 +14,6 @@ class LoginRegistrationQuery {
   
   public function registration($username, $hash){
     $statemet = $this->pdo->prepare("INSERT INTO users(email, password) VALUES('{$username}', '{$hash}')");
-    return $statemet;
+    return $statemet->execute();
   }
 }

@@ -1,11 +1,17 @@
 <?php
 
 class Router {
+  public $routes = [
+    'GET'  => [],
+    'POST' => []
+  ];
 
-  protected $routes = [];
+  public function get($uri, $controller){
+    $this->routes['GET'][$uri] = $controller;
+  }
 
-  public function define( $routes ){
-    $this->routes = $routes;
+  public function post($uri, $controller){
+    $this->routes['POST'][$uri] = $controller;
   }
 
   public static function load($file){
@@ -14,9 +20,9 @@ class Router {
     return $router;
   }
 
-  public function direct($uri){
-    if(array_key_exists($uri, $this->routes)){
-      return $this->routes[$uri];
+  public function direct($uri, $request_type){
+    if(array_key_exists($uri, $this->routes[$request_type])){
+      return $this->routes[$request_type][$uri];
     }
     throw new Exception('Could not find routes');
   }

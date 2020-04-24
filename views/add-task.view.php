@@ -7,7 +7,7 @@
     <p>...</p>
     <!-- Add Task -->
     <h2>Add Task</h2>
-    <form method="post" action="submit.php">
+    <form method="post" action="taskaction">
       <fieldset>
       <?php
         $added = $_GET['added'] ?? '';
