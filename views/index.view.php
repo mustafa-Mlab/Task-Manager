@@ -1,6 +1,6 @@
 <?php require 'parcial/header.php'; ?>
   <div class="logo-wrapper">
-    <h1 class="heading"><a href="">My Tasks</a></h1>
+    <h1 class="heading"><a href="/">My Tasks</a></h1>
     <p class="tagline">A Task Manager System</p>
   </div>
 

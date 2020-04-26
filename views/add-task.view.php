@@ -2,7 +2,7 @@
 <?php require 'parcial/nav.php'; ?>
 
   <div class="container">
-    <h1><a href="<?php echo 'index.php'; ?>">Task Manager</a></h1>
+    <h1><a href="/">Task Manager</a></h1>
     <p class="person-name">Welcome <span>Rasel</span></p>
     <p>...</p>
     <!-- Add Task -->

@@ -23,15 +23,15 @@ class Authenticate {
             die();
           }else{
             $statusCode = $this->statusCode = 4; // username and password didn't match
-            header("Location: index.php?status={$statusCode}");
+            header("Location: /?status={$statusCode}");
           }
         }else{
           $statusCode = $this->statusCode = 5; // user dosen't exist
-          header("Location: index.php?status={$statusCode}");
+          header("Location: /?status={$statusCode}");
         }
       }else{
         $statusCode = $this->statusCode = 2; // Username or Password Empty
-        header("Location: index.php?status={$statusCode}");
+        header("Location: /?status={$statusCode}");
       }
     }
   }
@@ -49,10 +49,10 @@ class Authenticate {
         // die();
         if( $databaseErrors ){
           $statusCode = $this->statusCode = 1; // Duplicate Email Address 
-          header("Location: index.php?status={$statusCode}");
+          header("Location: /?status={$statusCode}");
         }else{
           $statusCode = $this->statusCode = 3; // Registration successfully completed
-          header("Location: index.php?status={$statusCode}");
+          header("Location: /?status={$statusCode}");
         }
       }
     }
