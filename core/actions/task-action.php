@@ -1,7 +1,6 @@
 <?php
 require 'core/Load.php';
-require_once 'core/database/InsertQuery.php';
-require_once 'core/Tasks/TaskAction.php';
+require "./vendor/autoload.php";
 
 // Connection make and insert
 $insert_query = new InsertQuery(Connection::make($config['database']));

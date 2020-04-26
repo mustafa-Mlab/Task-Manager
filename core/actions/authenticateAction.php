@@ -1,14 +1,13 @@
 <?php
 require 'core/Load.php';
 require_once 'functions.php';
-require_once 'core/database/LoginRegistrationQuery.php';
-require_once 'core/authenticate/Authenticate.php';
+require "./vendor/autoload.php";
 
 $login_registration_query = new LoginRegistrationQuery(Connection::make($config['database']));
 $action = isset( $_POST['action'] ) ? $_POST['action'] : '';
 
 if( ! $action ){
-  header('Location: index.php');
+  header('Location: /');
 }else{
   $authenticate = new Authenticate();
   
