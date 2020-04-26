@@ -1,5 +1,7 @@
 <?php
 
+namespace TaskList\Core\Tasks;
+
 class TaskAction {
   public $user_id = 0;
 

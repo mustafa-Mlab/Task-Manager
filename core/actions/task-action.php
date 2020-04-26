@@ -1,4 +1,9 @@
 <?php
+
+namespace TaskList\Core\Action;
+use TaskList\Core\Database\{ InsertQuery, Connection };
+use TaskList\Core\Tasks\TaskAction;
+
 require 'core/Load.php';
 require "./vendor/autoload.php";
 

@@ -1,5 +1,7 @@
 <?php
 
+namespace TaskList\Core;
+
 class Request {
 
   public static function uri(){

@@ -1,4 +1,7 @@
 <?php
+
+namespace TaskList\Core\Authenticate;
+
 class Authenticate {
   // public $user_id = 0;
   public $statusCode = 0;

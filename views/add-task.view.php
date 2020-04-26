@@ -3,8 +3,7 @@
 
   <div class="container">
     <h1><a href="/">Task Manager</a></h1>
-    <p class="person-name">Welcome <span>Rasel</span></p>
-    <p>...</p>
+    <p>This is a simple project for managing our daily task</p>
     <!-- Add Task -->
     <h2>Add Task</h2>
     <form method="post" action="taskaction">

@@ -1,4 +1,9 @@
 <?php
+
+namespace TaskList\Core\Action;
+use TaskList\Core\Database\{ LoginRegistrationQuery, Connection };
+use TaskList\Core\Authenticate\Authenticate;
+
 require 'core/Load.php';
 require_once 'functions.php';
 require "./vendor/autoload.php";

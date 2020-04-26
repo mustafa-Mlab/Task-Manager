@@ -1,5 +1,7 @@
 <?php
 
+namespace TaskList\Core\Database;
+use PDO;
 class LoginRegistrationQuery {
   protected $pdo;
   public function __construct($pdo){

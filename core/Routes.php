@@ -1,5 +1,7 @@
 <?php
 
+namespace TaskList\Core;
+
 class Router {
   public $routes = [
     'GET'  => [],

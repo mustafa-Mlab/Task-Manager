@@ -1,5 +1,7 @@
 <?php
 
+namespace TaskList\Core\Database;
+
 Class InsertQuery{
   protected $pdo;
   public function __construct($pdo){
