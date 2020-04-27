@@ -6,5 +6,6 @@
   <title>Task List</title>
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link  href="./node_modules/@chenfengyuan/datepicker/dist/datepicker.css" rel="stylesheet">
 </head>
 <body>

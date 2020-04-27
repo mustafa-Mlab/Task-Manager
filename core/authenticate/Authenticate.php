@@ -47,14 +47,11 @@ class Authenticate {
       if( $username && $password ){
         $hash = password_hash( $password, PASSWORD_BCRYPT );
         $registration = $login_registration_query->registration($username, $hash);
-        $databaseErrors = $registration->errorInfo();
-        // var_dump($databaseErrors);
-        // die();
-        if( $databaseErrors ){
-          $statusCode = $this->statusCode = 1; // Duplicate Email Address 
+        if( $registration ){
+          $statusCode = $this->statusCode = 3; // Duplicate Email Address 
           header("Location: /?status={$statusCode}");
         }else{
-          $statusCode = $this->statusCode = 3; // Registration successfully completed
+          $statusCode = $this->statusCode = 1; // Registration successfully completed
           header("Location: /?status={$statusCode}");
         }
       }

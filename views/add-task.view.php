@@ -6,7 +6,7 @@
     <p>This is a simple project for managing our daily task</p>
     <!-- Add Task -->
     <h2>Add Task</h2>
-    <form method="post" action="taskaction">
+    <form method="post" action="taskaction" id="add-task">
       <fieldset>
       <?php
         $added = $_GET['added'] ?? '';
@@ -17,7 +17,7 @@
         <label for="task">Task</label>
         <input type="text" name="task" id="task" placeholder="Task Details">
         <label for="date">Date</label>
-        <input type="text" id="date" name="date" placeholder="Task Date">
+        <input type="text" data-toggle="datepicker" id="date-picker" autocomplete="off" name="date" placeholder="Task Date">
         <input type="submit" value="Add Task" class="button-primany">
         <input type="hidden" name="action" value="add">
       </fieldset>

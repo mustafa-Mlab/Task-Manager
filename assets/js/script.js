@@ -1,4 +1,17 @@
 $(document).ready(function(){
+  // datePicker
+  $.fn.datepicker.setDefaults({
+    autoShow: true,
+    autoHide: true,
+    format: 'yyyy-mm-dd',
+  });
+
+  // add task
+  $('#date-picker').on('click', function(){
+    $('[data-toggle="datepicker"]').datepicker();
+  });
+
+
   // complete
   $('.task-complete').on('click', function(){
     let id = $(this).data('taskid');

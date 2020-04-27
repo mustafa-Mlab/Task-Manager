@@ -1,6 +1,5 @@
 <?php require 'parcial/header.php'; ?>
 <?php require 'parcial/nav.php'; ?>
-
   <div class="container">
     <h1><a href="<?php echo '/'; ?>">Task Manager</a></h1>
     <p>This is a simple project for managing our daily task</p>
