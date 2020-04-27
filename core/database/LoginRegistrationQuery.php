@@ -18,4 +18,10 @@ class LoginRegistrationQuery {
     $statemet = $this->pdo->prepare("INSERT INTO users(email, password) VALUES('{$username}', '{$hash}')");
     return $statemet->execute();
   }
+
+  public function getEmail($username){
+    $statemet = $this->pdo->prepare("SELECT email FROM users WHERE id = '{$username}'");
+    $statemet->execute();
+    return $statemet->fetch(PDO::FETCH_ASSOC);
+  }
 }

@@ -46,12 +46,14 @@ class Authenticate {
       $password = $_POST['passwordfield'] ?? '';
       if( $username && $password ){
         $hash = password_hash( $password, PASSWORD_BCRYPT );
-        $registration = $login_registration_query->registration($username, $hash);
-        if( $registration ){
-          $statusCode = $this->statusCode = 3; // Duplicate Email Address 
+        $fetch_username = $login_registration_query->getEmail( $username );
+        var_dump($fetch_username);
+        if( $fetch_username == false ){
+          $login_registration_query->registration($username, $hash);
+          $statusCode = $this->statusCode = 3; // Registration successfully completed
           header("Location: /?status={$statusCode}");
         }else{
-          $statusCode = $this->statusCode = 1; // Registration successfully completed
+          $statusCode = $this->statusCode = 1; // Duplicate Email Address
           header("Location: /?status={$statusCode}");
         }
       }
